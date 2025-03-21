@@ -5,6 +5,14 @@
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  #root {
+    padding: 0rem;           
+    text-align: left; 
+    max-width: 95%       
+  }
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -42,9 +50,15 @@
 }
 
 
-/* 60/40 layout */
+/* Flex Layout 1/3 layout */
 
 /* Layout Styles for Portfolio & Chat */
+.main-app-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
 .content {
   display: flex;
   flex-direction: row;
@@ -53,15 +67,16 @@
 
 /* Portfolio takes 40% width */
 .portfolio {
-  width: 40%;
+  flex: 1;
   background: #7d7d7d;
   padding: 20px;
   border-radius: 8px;
+  text-align: left;
 }
 
 /* Chat takes 60% width */
 .chat {
-  width: 60%;
+  flex: 3;
   padding: 20px;
   border-radius: 8px;
   background: #7d7d7d;
@@ -74,10 +89,12 @@
       flex-direction: column;
   }
 
+  /*
   .portfolio,
   .chat {
-      width: 100%;
   }
+  */
+
 }
 
 /* Styling for Header */
@@ -86,7 +103,26 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  padding: 10px;
 }
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column; 
+    align-items: center;
+  }
+  .header h2 {
+    margin-bottom: 10px;
+  }
+  .header > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
 
 /* Improve Button Styling */
 button {
@@ -99,7 +135,83 @@ button {
   cursor: pointer;
   transition: background 0.3s;
 }
+.header button {
+  margin-left: 10px;
+}
 
 button:hover {
   background: #0056b3;
+}
+
+/*Add CSS for Modal (inside App.css)*/
+/* Modal Background Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Box */
+.modal-content {
+  background: #555454;
+  padding: 20px;
+  border-radius: 8px;
+  width: 50%;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+/* Portfolio CSS stuff */
+/* Portfolio Title */
+.portfolio-name {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #fff;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .portfolio-name {
+    text-align: center;
+  }
+}
+
+/* Picture Container */
+.portfolio-pic-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.profile-pic {
+  width: 200px; 
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Links */
+.portfolio-links {
+  background: #6d6d6d; 
+  padding: 15px;
+  border-radius: 8px;
+  color: #fff;
+}
+.portfolio-links ul {
+  list-style: none;
+  padding-left: 0;
+  line-height: 1.6;
+}
+.portfolio-links li a {
+  color: #ffd966; 
+  text-decoration: none;
+}
+.portfolio-links li a:hover {
+  text-decoration: underline;
 }
